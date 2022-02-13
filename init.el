@@ -49,8 +49,9 @@
 (require 'init-undo-tree)
 (require 'init-elfeed)  ;; rss 阅读器
 (require 'init-goto-line-preview) ;; 预览行
-
-
+;;(require 'init-elpy)
+(require 'init-python)
+(require 'init-pyvenv)
 
 
 ;; TODO
@@ -73,7 +74,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(elfeed undo-tree highlight-parentheses hydra diminish rainbow-delimiters flycheck beacon symbol-overlay which-key move-dup switch-window expand-region company multiple-cursors avy counsel ivy swiper gnu-elpa-keyring-update fullframe seq dirvish evil-leader evil mode-line-bell highlight-escape-sequences whole-line-or-region page-break-lines browse-kill-ring vlf list-unicode-display unfill ibuffer-vc)))
+   '(pyvenv reformatter toml-mode company-anaconda anaconda-mode pip-requirements elfeed undo-tree highlight-parentheses hydra diminish rainbow-delimiters flycheck beacon symbol-overlay which-key move-dup switch-window expand-region company multiple-cursors avy counsel ivy swiper gnu-elpa-keyring-update fullframe seq elpy dirvish evil-leader evil mode-line-bell highlight-escape-sequences whole-line-or-region page-break-lines browse-kill-ring vlf list-unicode-display unfill ibuffer-vc)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
