@@ -1,4 +1,4 @@
-;;递归扫描插件目录
+;; 递归扫描插件目录
 (defun add-subdirs-to-load-path (dir)
   "Recursive add directories to 'load-path'."
   (let ((default-directory (file-name-as-directory dir)))
@@ -6,7 +6,7 @@
     (normal-top-level-add-subdirs-to-load-path)))
 (add-subdirs-to-load-path "~/.emacs.d/lisp/")
 
-;;基本设置
+;; 基本设置
 (tool-bar-mode 0)    ;;关闭工具栏
 (menu-bar-mode 0)    ;;关闭菜单栏
 (scroll-bar-mode 0)  ;; 关闭滚动条
@@ -17,14 +17,16 @@
 (fset 'yes-or-no-p 'y-or-n-p)  ;;设置问答提示为 y-or-n,而不是yes-or-no
 (setq make-backup-files nil)   ;;不生成备份文件
 (setq auto-save-list-file-prefix nil)  ;;
+(setq custom-file (expand-file-name "./lisp/config/init-custom.el" user-emacs-directory))
+(setq recentf-list 'nil)
+(setq recentf-filter-changer-current 'nil)
 
 
-
-
+;; emacs包
 (require 'init-auto-save)
 (require 'init-awesome-pair)
 (require 'init-font)
-;;(require 'init-cnfonts)
+;;(require 'init-cnfonts) ;; 字体配置
 (require 'init-elpa)
 (require 'init-edit);; 一些函数
 (require 'init-ivy)
@@ -42,42 +44,20 @@
 ;;(require 'init-nox) ;;windows 上不能用
 (require 'init-flycheck) ;;语法检查
 (require 'init-rainbow-delimiters) ;;彩虹分隔符
-(require 'init-diminish) ;;减少
 (require 'init-hydra)
 (require 'init-highlight-parentheses)
 ;;(require 'init-sort-tab)
 (require 'init-undo-tree)
-(require 'init-elfeed)  ;; rss 阅读器
+;;(require 'init-elfeed)  ;; rss 阅读器
 (require 'init-goto-line-preview) ;; 预览行
-;;(require 'init-elpy)
-(require 'init-python)
-(require 'init-pyvenv)
-
-
-;; TODO
+(require 'init-conda)
+(require 'init-resize-window)
+;;(require 'init-emms) ;; emacs多媒体
 
 
 
 
 
-
-;;;; 透明度
-;;(setq default-frame-alist '((width . 90)
-;;                              (height . 50)
-;;                              (alpha-background . 50)))
-
+(require 'init-diminish) ;;减少
 
 (provide 'init)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(pyvenv reformatter toml-mode company-anaconda anaconda-mode pip-requirements elfeed undo-tree highlight-parentheses hydra diminish rainbow-delimiters flycheck beacon symbol-overlay which-key move-dup switch-window expand-region company multiple-cursors avy counsel ivy swiper gnu-elpa-keyring-update fullframe seq elpy dirvish evil-leader evil mode-line-bell highlight-escape-sequences whole-line-or-region page-break-lines browse-kill-ring vlf list-unicode-display unfill ibuffer-vc)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

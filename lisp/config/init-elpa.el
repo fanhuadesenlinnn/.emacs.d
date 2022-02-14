@@ -7,15 +7,23 @@
 
 
 ;;; Install into separate package dirs for each Emacs version, to prevent bytecode incompatibility
+;;(setq package-user-dir
+;;      (expand-file-name (format "elpa-%s.%s" emacs-major-version emacs-minor-version)
+;;                        user-emacs-directory))
 (setq package-user-dir
-      (expand-file-name (format "elpa-%s.%s" emacs-major-version emacs-minor-version)
+      (expand-file-name (format "elpa")
                         user-emacs-directory))
 
 
 
 ;;; Standard package repositories
 
-(add-to-list 'package-archives '( "melpa" . "https://melpa.org/packages/") t)
+;;(add-to-list 'package-archives '( "melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives '( "gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")   t)
+(add-to-list 'package-archives '( "org"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")   t)
+(add-to-list 'package-archives '( "melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/") t)
+
+
 ;; Official MELPA Mirror, in case necessary.
 ;;(add-to-list 'package-archives (cons "melpa-mirror" (concat proto "://www.mirrorservice.org/sites/melpa.org/packages/")) t)
 
